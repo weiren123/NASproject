@@ -5,9 +5,9 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
-import com.example.lyw.nasproject.di.AppComponent;
-import com.example.lyw.nasproject.di.AppModule;
-import com.example.lyw.nasproject.di.DaggerAppComponent;
+import com.example.lyw.nasproject.di.component.AppComponent;
+import com.example.lyw.nasproject.di.component.DaggerAppComponent;
+import com.example.lyw.nasproject.di.module.AppModule;
 
 import java.util.HashSet;
 import java.util.Set;

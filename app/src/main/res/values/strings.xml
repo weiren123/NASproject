@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NASProject</string>
+    <string name="header_scrolling_behavior">com.example.lyw.nasproject.widget.HeaderScrollingBehavior</string>
+    <string name="header_float_behavior">com.example.lyw.nasproject.widget.HeaderFloatBehavior</string>
 </resources>
