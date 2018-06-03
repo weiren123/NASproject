@@ -26,12 +26,29 @@
             android:textColor="#90000000"
             android:text="搜索关键字" />
     </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff"
-        app:layout_behavior="@string/header_scrolling_behavior"
-        app:layoutManager="LinearLayoutManager" />
+        app:layout_behavior="@string/header_scrolling_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ssss"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+<!--</android.support.design.widget.CoordinatorLayout-->
+        <!--/>-->
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/rv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="#fff"-->
+        <!--app:layout_behavior="@string/header_scrolling_behavior"-->
+        <!--app:layoutManager="LinearLayoutManager" />-->
 </android.support.design.widget.CoordinatorLayout>
