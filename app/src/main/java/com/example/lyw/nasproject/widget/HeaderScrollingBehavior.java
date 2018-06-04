@@ -66,7 +66,7 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<View> {
         dependency.setScaleX(scale);
         dependency.setScaleY(scale);
 
-        dependency.setAlpha(progress);
+//        dependency.setAlpha(progress);
 
         return true;
     }

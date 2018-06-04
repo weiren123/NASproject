@@ -46,6 +46,7 @@ public class HeaderFloatBehavior extends CoordinatorLayout.Behavior<View> {
         final float translateY = collapsedOffset + (initOffset - collapsedOffset) * progress;
         child.setTranslationY(translateY);
 
+
         // Background
         child.setBackgroundColor((int) argbEvaluator.evaluate(
                 progress,
@@ -55,11 +56,11 @@ public class HeaderFloatBehavior extends CoordinatorLayout.Behavior<View> {
         // Margins
         final float collapsedMargin = resources.getDimension(R.dimen.collapsed_float_margin);
         final float initMargin = resources.getDimension(R.dimen.init_float_margin);
+
         final int margin = (int) (collapsedMargin + (initMargin - collapsedMargin) * progress);
         CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
         lp.setMargins(margin, 0, margin, 0);
         child.setLayoutParams(lp);
-
         return true;
     }
 
