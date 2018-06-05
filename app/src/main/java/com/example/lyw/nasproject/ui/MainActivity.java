@@ -1,14 +1,15 @@
 package com.example.lyw.nasproject.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
 import com.example.lyw.nasproject.R;
+import com.example.lyw.nasproject.base.BaseActivity;
+import com.example.lyw.nasproject.base.contract.MainContract;
 import com.example.lyw.nasproject.model.TabEntity;
+import com.example.lyw.nasproject.presenter.MainPresenter;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 
@@ -21,17 +22,13 @@ import io.nebulas.api.SmartContracts;
 import io.nebulas.model.GoodsModel;
 import io.nebulas.utils.Util;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
-    @BindView(R.id.scrolling_header)
-    ImageView scrollingHeader;
-    @BindView(R.id.edit_search)
-    LinearLayout editSearch;
+    @BindView(R.id.fl_change)
+    FrameLayout flChange;
     @BindView(R.id.tl_2)
     CommonTabLayout mTabLayout_2;
-    @BindView(R.id.btn)
-    Button btn;
-
+    private ArrayList<Fragment> mFragments2 = new ArrayList<>();
     private String[] mTitles = {"首页", "消息", "联系人", "更多"};
     private int[] mIconUnselectIds = {
             R.mipmap.tab_home_unselect, R.mipmap.tab_speech_unselect,
@@ -44,23 +41,11 @@ public class MainActivity extends AppCompatActivity {
     private String value = "100";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        initView();
-        inttData();
+    protected int getLayoutView() {
+        return R.layout.activity_home;
     }
 
-    private void inttData() {
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nasPay(v);
-            }
-        });
-    }
-    public void nasPay(View view){
+    public void nasPay(View view) {
 
         if (view == null) {
             return;
@@ -73,13 +58,34 @@ public class MainActivity extends AppCompatActivity {
         goods.name = "ss";
         goods.desc = "aa";
 
-        SmartContracts.pay(this, Constants.MAIN_NET, goods,  to, value , serialNumber);
+        SmartContracts.pay(this, Constants.MAIN_NET, goods, to, value, serialNumber);
 
     }
-    private void initView() {
+
+    @Override
+    protected void initInject() {
+        getActivityComponten().inject(this);
+    }
+
+    @Override
+    public void showFragment() {
+        HomeFragment homeFragment = new HomeFragment();
+        mFragments2.add(homeFragment);
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
-        mTabLayout_2.setTabData(mTabEntities);
+        mTabLayout_2.setTabData(mTabEntities, this, R.id.fl_change, mFragments2);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void initEventAndData() {
+        mPresenter.getMainData();
     }
 }

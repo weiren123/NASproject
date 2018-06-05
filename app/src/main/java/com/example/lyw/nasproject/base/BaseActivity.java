@@ -2,7 +2,7 @@ package com.example.lyw.nasproject.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.SupportActivity;
+import android.support.v4.app.FragmentActivity;
 
 import com.example.lyw.nasproject.app.App;
 import com.example.lyw.nasproject.di.component.ActivityComponent;
@@ -19,7 +19,7 @@ import butterknife.Unbinder;
  * Created by Administrator on 2018/5/31.
  */
 
-public abstract class BaseActivity<T extends BasePresenter> extends SupportActivity implements BaseView{
+public abstract class BaseActivity<T extends BasePresenter> extends FragmentActivity implements BaseView{
     @Inject
     protected T mPresenter;
     private ActivityComponent activityComponent;
@@ -32,8 +32,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
         App.getInstance().addActivity(this);
         mBind =ButterKnife.bind(this);
         initView();
-        initData();
+        initEventAndData();
     }
+
+    protected abstract void initEventAndData();
+
     public ActivityComponent getActivityComponten(){
         if(activityComponent == null){
             activityComponent = DaggerActivityComponent.builder()
@@ -57,7 +60,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
         }
     };
     protected abstract void initInject();
-    protected abstract void initData();
 
     @Override
     protected void onDestroy() {
