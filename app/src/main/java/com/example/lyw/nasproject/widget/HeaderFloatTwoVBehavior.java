@@ -15,12 +15,12 @@ import java.lang.ref.WeakReference;
 /**
  * Created by cyandev on 2016/12/14.
  */
-public class HeaderFloatBehavior extends CoordinatorLayout.Behavior<View> {
+public class HeaderFloatTwoVBehavior extends CoordinatorLayout.Behavior<View> {
 
     private WeakReference<View> dependentView;
     private ArgbEvaluator argbEvaluator;
 
-    public HeaderFloatBehavior(Context context, AttributeSet attrs) {
+    public HeaderFloatTwoVBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         argbEvaluator = new ArgbEvaluator();
@@ -43,7 +43,7 @@ public class HeaderFloatBehavior extends CoordinatorLayout.Behavior<View> {
 
         // Translation
         final float collapsedOffset = resources.getDimension(R.dimen.collapsed_float_offset_y);
-        final float initOffset = resources.getDimension(R.dimen.init_float_offset_y);
+        final float initOffset = resources.getDimension(R.dimen.init_float_twov_offset_y);
         final float translateY = collapsedOffset + (initOffset - collapsedOffset) * progress;
         child.setTranslationY(translateY);
 
@@ -53,19 +53,17 @@ public class HeaderFloatBehavior extends CoordinatorLayout.Behavior<View> {
 //                progress,
 //                resources.getColor(R.color.colorCollapsedBackground),
 //                resources.getColor(R.color.colorInitBackground)));
-
+        int width = parent.getWidth();
         // Margins
         final float collapsedMargin = resources.getDimension(R.dimen.collapsed_float_margin);
         final float initMargin = resources.getDimension(R.dimen.init_float_margin);
-        int width = parent.getWidth();
-        Logger.e("width:"+width);
-        float translateX = width/2 - width/2* progress;
-        Logger.e("translateX:"+translateX);
-        if(translateX>width/2-170){
-            translateX = width/2-170;
+        Logger.e("width:"+ width);
+        float translateX = width /2 - width /2* progress;
+        Logger.e("11translateX:"+translateX);
+        if(translateX> width /2-170){
+            translateX = width /2-170;
         }
-        child.setTranslationX(-translateX);
-
+        child.setTranslationX(translateX);
         final int margin = (int) (collapsedMargin + (initMargin - collapsedMargin) * progress);
         CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
         lp.setMargins(margin, 0, margin, 0);

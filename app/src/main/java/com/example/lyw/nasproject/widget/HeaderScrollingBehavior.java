@@ -1,5 +1,6 @@
 package com.example.lyw.nasproject.widget;
 
+import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import java.lang.ref.WeakReference;
  */
 public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<View> {
 
+    private ArgbEvaluator argbEvaluator;
     private boolean isExpanded = false;
     private boolean isScrolling = false;
 
@@ -29,6 +31,7 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<View> {
         super(context, attrs);
         scroller = new Scroller(context);
         handler = new Handler();
+        argbEvaluator = new ArgbEvaluator();
     }
 
     public boolean isExpanded() {
@@ -65,9 +68,7 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<View> {
         float scale = 1 + 0.4f * (1.f - progress);
         dependency.setScaleX(scale);
         dependency.setScaleY(scale);
-
-//        dependency.setAlpha(progress);
-
+        dependency.setAlpha(progress);
         return true;
     }
 

@@ -15,19 +15,29 @@
             android:layout_height="200dp"
             android:background="@mipmap/bg_header"
             android:scaleType="centerCrop" />
-
+        <LinearLayout
+            android:id="@+id/twoV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_behavior="@string/header_twov_float_behavior">
+            <ImageView
+                android:id="@+id/iv_twov"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher_round"/>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/edit_search"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             app:layout_behavior="@string/header_float_behavior">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
                 android:text="搜索关键字"
                 android:textColor="#90000000" />
         </LinearLayout>

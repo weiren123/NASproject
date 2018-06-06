@@ -29,8 +29,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     protected T mPresenter;
 
     private Unbinder unbinder;
-    private Activity mActivity;
-    private Context mContext;
+    protected Activity mActivity;
+    protected Context mContext;
 
     protected FragmentComponent getFragmentComponet(){
         return DaggerFragmentComponent.builder().appComponent(App.getAppComponent())

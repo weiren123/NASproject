@@ -10,6 +10,8 @@ import com.example.lyw.nasproject.presenter.BasePresenter;
 public interface HomeContract {
     interface View extends BaseView{
         void showContent();
+
+        void showZXcode();
     }
     interface Presenter extends BasePresenter<View>{
         void getHomeData();
