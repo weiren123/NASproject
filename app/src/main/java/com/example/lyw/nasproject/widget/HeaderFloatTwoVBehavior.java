@@ -42,7 +42,7 @@ public class HeaderFloatTwoVBehavior extends CoordinatorLayout.Behavior<View> {
                 Math.abs(dependency.getTranslationY() / (dependency.getHeight() - resources.getDimension(R.dimen.collapsed_header_height)));
 
         // Translation
-        final float collapsedOffset = resources.getDimension(R.dimen.collapsed_float_offset_y);
+        final float collapsedOffset = resources.getDimension(R.dimen.collapsed_float_twov_offset_y);
         final float initOffset = resources.getDimension(R.dimen.init_float_twov_offset_y);
         final float translateY = collapsedOffset + (initOffset - collapsedOffset) * progress;
         child.setTranslationY(translateY);
@@ -64,10 +64,10 @@ public class HeaderFloatTwoVBehavior extends CoordinatorLayout.Behavior<View> {
             translateX = width /2-170;
         }
         child.setTranslationX(translateX);
-        final int margin = (int) (collapsedMargin + (initMargin - collapsedMargin) * progress);
-        CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
-        lp.setMargins(margin, 0, margin, 0);
-        child.setLayoutParams(lp);
+//        final int margin = (int) (collapsedMargin + (initMargin - collapsedMargin) * progress);
+//        CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
+//        lp.setMargins(margin, 0, margin, 0);
+//        child.setLayoutParams(lp);
         return true;
     }
 

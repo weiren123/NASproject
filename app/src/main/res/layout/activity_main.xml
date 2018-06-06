@@ -13,7 +13,7 @@
             android:id="@+id/scrolling_header"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@mipmap/bg_header"
+            android:background="@mipmap/indexbg"
             android:scaleType="centerCrop" />
         <LinearLayout
             android:id="@+id/twoV"
@@ -25,8 +25,8 @@
                 android:id="@+id/iv_twov"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@mipmap/ic_launcher_round"/>
+                android:gravity="center"
+                android:src="@mipmap/balance_detail_transferlogo"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/edit_search"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="搜索关键字"
-                android:textColor="#90000000" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <android.support.v4.widget.NestedScrollView
@@ -52,12 +52,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="测试" />
+                <!--<Button-->
+                    <!--android:id="@+id/btn"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:text="测试" />-->
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>

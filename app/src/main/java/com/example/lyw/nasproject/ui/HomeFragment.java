@@ -30,8 +30,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     LinearLayout twoV;
     @BindView(R.id.edit_search)
     LinearLayout editSearch;
-    @BindView(R.id.btn)
-    Button btn;
     @BindView(R.id.iv_twov)
     ImageView iVTwoV;
     private BottomDialog dialog;

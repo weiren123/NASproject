@@ -9,10 +9,11 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="collapsed_header_height">60dp</dimen>
+    <dimen name="collapsed_header_height">20dp</dimen>
     <dimen name="init_float_offset_y">140dp</dimen>
     <dimen name="init_float_twov_offset_y">80dp</dimen>
-    <dimen name="collapsed_float_offset_y">5dp</dimen>
+    <dimen name="collapsed_float_offset_y">20dp</dimen>
+    <dimen name="collapsed_float_twov_offset_y">15dp</dimen>
     <dimen name="init_float_margin">20dp</dimen>
     <dimen name="collapsed_float_margin">5dp</dimen>
     <dimen name="content_padding">8dp</dimen>
