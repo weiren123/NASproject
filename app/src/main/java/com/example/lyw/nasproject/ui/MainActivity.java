@@ -1,6 +1,5 @@
 package com.example.lyw.nasproject.ui;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -16,7 +15,6 @@ import com.flyco.tablayout.listener.CustomTabEntity;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.nebulas.Constants;
 import io.nebulas.api.SmartContracts;
 import io.nebulas.model.GoodsModel;
@@ -70,18 +68,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public void showFragment() {
         HomeFragment homeFragment = new HomeFragment();
+        NewsWebFragment newsWebFragment = new NewsWebFragment();
         mFragments2.add(homeFragment);
+        mFragments2.add(newsWebFragment);
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
         mTabLayout_2.setTabData(mTabEntities, this, R.id.fl_change, mFragments2);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 
     @Override
