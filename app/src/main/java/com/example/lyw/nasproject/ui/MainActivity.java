@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @BindView(R.id.tl_2)
     CommonTabLayout mTabLayout_2;
     private ArrayList<Fragment> mFragments2 = new ArrayList<>();
-    private String[] mTitles = {"首页", "消息", "联系人", "更多"};
+    private String[] mTitles = {"首页", "资讯", "我的"};
     private int[] mIconUnselectIds = {
             R.mipmap.tab_home_unselect, R.mipmap.tab_speech_unselect,
             R.mipmap.tab_contact_unselect, R.mipmap.tab_more_unselect};
@@ -69,8 +69,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public void showFragment() {
         HomeFragment homeFragment = new HomeFragment();
         NewsWebFragment newsWebFragment = new NewsWebFragment();
+        MyModelFragment myModelFragment = new MyModelFragment();
         mFragments2.add(homeFragment);
         mFragments2.add(newsWebFragment);
+        mFragments2.add(myModelFragment);
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
