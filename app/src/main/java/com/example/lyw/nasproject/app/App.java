@@ -32,6 +32,16 @@ public class App extends Application {
 //        String registrationID = JPushInterface.getRegistrationID(getApplicationContext());
 //        Logger.e("registrationID:"+registrationID);
     }
+
+    /**
+     * 内存管理
+     * @param level
+     */
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+    }
+
     @Override
     public void attachBaseContext(Context base) {
         MultiDex.install(base);

@@ -62,11 +62,25 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initInject() {
+
         getActivityComponten().inject(this);
     }
 
     @Override
     public void showFragment() {
+
+//        new ServiceConnection() {
+//            @Override
+//            public void onServiceConnected(ComponentName name, IBinder service) {
+//                ToastUtil.shortShow("service");
+//            }
+//
+//            @Override
+//            public void onServiceDisconnected(ComponentName name) {
+//
+//            }
+//        };
+
         HomeFragment homeFragment = new HomeFragment();
         NewsWebFragment newsWebFragment = new NewsWebFragment();
         MyModelFragment myModelFragment = new MyModelFragment();
