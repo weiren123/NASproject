@@ -20,6 +20,7 @@ public class ImagesLoader {
     }
     public static void load(Activity activity, String imageurl, ImageView iv){
         if(!activity.isDestroyed()){
+            Glide.with(activity).resumeRequests();
             Glide.with(activity).load(imageurl).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .into(iv);
         }
